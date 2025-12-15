@@ -1,0 +1,1 @@
+export { BoringButton } from './button';

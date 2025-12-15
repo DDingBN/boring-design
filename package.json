@@ -1,0 +1,19 @@
+{
+  "name": "boring-design",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:docs": "pnpm -F docs dev",
+    "build:all": "pnpm -r build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.25.0",
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
+  }
+}
