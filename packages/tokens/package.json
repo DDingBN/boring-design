@@ -1,21 +1,38 @@
 {
-  "name": "@boring/tokens",
-  "version": "0.0.1",
-  "type": "module",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "node build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "exports": {
-    "./index.css": "./dist/index.css"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.25.0",
-  "devDependencies": {
-    "style-dictionary": "^5.1.1"
-  }
+    "name": "@boring/tokens",
+    "version": "0.0.1",
+    "type": "module",
+    "description": "Design tokens for Boring UI",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/index.d.ts",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.d.ts"
+        },
+        "./css/light": "./dist/css/light.css",
+        "./css/dark": "./dist/css/dark.css",
+        "./css/*": "./dist/css/*.css"
+    },
+    "sideEffects": [
+        "**/*.css"
+    ],
+    "scripts": {
+        "build": "node build.js",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "design-systems",
+        "tokens",
+        "web-components"
+    ],
+    "author": "",
+    "license": "ISC",
+    "packageManager": "pnpm@9.0.0",
+    "devDependencies": {
+        "style-dictionary": "^5.1.1"
+    }
 }

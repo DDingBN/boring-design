@@ -1,0 +1,9 @@
+{
+    "sys": {
+        "color": {
+            "primary": {
+                "value": "{ref.palette.blue.500}"
+            }
+        }
+    }
+}
