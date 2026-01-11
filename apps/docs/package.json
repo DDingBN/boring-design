@@ -15,7 +15,8 @@
   "packageManager": "pnpm@10.25.0",
   "devDependencies": {
     "vitepress": "^1.6.4",
-    "vue": "^3.5.25"
+    "vue": "^3.5.25",
+    "@types/node": "^24.10.1"
   },
   "dependencies": {
     "@boring/components": "workspace:*",
