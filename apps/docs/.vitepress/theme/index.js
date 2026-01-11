@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme';
-import '@boring/tokens/index.css'; // 引入全局样式变量
+import '@boring/tokens/css/light'; // 引入全局样式变量
 
 export default {
   ...DefaultTheme,

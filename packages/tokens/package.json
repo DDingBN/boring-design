@@ -6,12 +6,12 @@
     "files": [
         "dist"
     ],
-    "main": "./dist/index.d.ts",
+    "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
-            "import": "./dist/index.d.ts"
+            "import": "./dist/index.js"
         },
         "./css/light": "./dist/css/light.css",
         "./css/dark": "./dist/css/dark.css",

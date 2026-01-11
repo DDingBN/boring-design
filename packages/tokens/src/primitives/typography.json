@@ -1,16 +1,18 @@
 {
-    "font": {
-        "family": {
-            "sans": { "value": "'Inter', system-ui, sans-serif" }
-        },
-        "size": {
-            "sm": { "value": "12px" },
-            "md": { "value": "14px" },
-            "lg": { "value": "16px" }
-        },
-        "lineHeight": {
-            "tight": { "value": "1.2" },
-            "normal": { "value": "1.5" }
+    "ref": {
+        "font": {
+            "family": {
+                "sans": { "value": "'Inter', system-ui, sans-serif" }
+            },
+            "size": {
+                "sm": { "value": "12px" },
+                "md": { "value": "14px" },
+                "lg": { "value": "16px" }
+            },
+            "lineHeight": {
+                "tight": { "value": "1.2" },
+                "normal": { "value": "1.5" }
+            }
         }
     }
 }

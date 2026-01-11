@@ -1,8 +1,10 @@
 {
-    "radius": {
-        "none": { "value": "0" },
-        "sm": { "value": "2px" },
-        "md": { "value": "6px" },
-        "lg": { "value": "12px" }
+    "ref": {
+        "radius": {
+            "none": { "value": "0" },
+            "sm": { "value": "2px" },
+            "md": { "value": "6px" },
+            "lg": { "value": "12px" }
+        }
     }
 }
