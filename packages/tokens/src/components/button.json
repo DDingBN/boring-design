@@ -1,0 +1,13 @@
+{
+    "comp": {
+        "button": {
+            "bg": {
+                "default": { "value": "{sys.color.primary}" },
+                "hover": { "value": "{sys.color.primary}" }
+            },
+            "text": {
+                "value": "{sys.color.on-primary}"
+            }
+        }
+    }
+}

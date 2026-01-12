@@ -1,5 +1,5 @@
 import StyleDictionary from 'style-dictionary';
-import { fileURLToPath } from 'url';
+import {fileURLToPath} from 'url';
 
 // ------------------------------------------------------------
 // 1. 配置注册 (Registers)
@@ -10,9 +10,9 @@ import { fileURLToPath } from 'url';
  * [v5 FIX]: 属性名必须是 'filter'，不能是 'matcher'
  */
 StyleDictionary.registerFilter({
-    name: 'filter-is-semantic',
+    name: 'filter-public-tokens',
     filter: (token) => {
-        return token.path[0] === 'sys';
+        return ['sys', 'comp'].includes(token.path[0]);
     }
 });
 
@@ -25,17 +25,17 @@ StyleDictionary.registerFilter({
 StyleDictionary.registerFormat({
     name: 'css/theme-aware',
     // [v5 FIX]: 属性名必须是 'format'，不能是 'formatter'
-    format: ({ dictionary, options }) => {
+    format: ({dictionary, options}) => {
         const selector = options.selector || ':root';
-        
+
         const header = `/**
- * ----------------------------------------------------
- * 🎨 Design Tokens: ${options.themeName}
- * 🤖 Generated at: ${new Date().toISOString()}
- * ⚠️ DO NOT EDIT DIRECTLY - Update source JSON instead
- * ----------------------------------------------------
- */`;
-        
+            * ----------------------------------------------------
+            * 🎨 Design Tokens: ${options.themeName}
+            * 🤖 Generated at: ${new Date().toISOString()}
+            * ⚠️ DO NOT EDIT DIRECTLY - Update source JSON instead
+            * ----------------------------------------------------
+            */`;
+
         // [v5 NOTE]: dictionary.allTokens 是标准用法
         const variables = dictionary.allTokens
             .sort((a, b) => a.name.localeCompare(b.name))
@@ -43,7 +43,7 @@ StyleDictionary.registerFormat({
                 return `  --${token.name}: ${token.value};`;
             })
             .join('\n');
-        
+
         return `${header}\n${selector} {\n${variables}\n}\n`;
     }
 });
@@ -84,7 +84,7 @@ console.log('🏗️  Starting Design Tokens Build...\n');
 async function runBuild() {
     for (const theme of themes) {
         console.log(`Processing Theme: [${theme.name}]`);
-        
+
         // [v5 FIX]: 使用 new StyleDictionary(config)
         const sd = new StyleDictionary({
             source: theme.sources,
@@ -96,7 +96,7 @@ async function runBuild() {
                         {
                             destination: `${theme.name}.css`,
                             format: 'css/theme-aware',
-                            filter: 'filter-is-semantic',
+                            filter: 'filter-public-tokens',
                             options: {
                                 selector: theme.selector,
                                 themeName: theme.name,
@@ -114,24 +114,22 @@ async function runBuild() {
                             {
                                 destination: 'index.js',
                                 format: 'javascript/es6', // 生成 export const sys = ...
-                                filter: 'filter-is-semantic'
+                                filter: 'filter-public-tokens'
                             },
                             {
                                 destination: 'index.d.ts',
                                 format: 'typescript/es6-declarations',
-                                filter: 'filter-is-semantic'
+                                filter: 'filter-public-tokens'
                             }
                         ]
                     }
                 } : {})
             }
         });
-        
+
         // [v5 FIX]: 必须 await
         await sd.buildAllPlatforms();
     }
-    
-    console.log('\n✅ Build finished successfully!');
 }
 
 // 执行异步构建

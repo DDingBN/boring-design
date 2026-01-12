@@ -1,9 +1,9 @@
 {
     "sys": {
         "color": {
-            "primary": {
-                "value": "{ref.palette.blue.500}"
-            }
+            "primary": { "value": "{ref.color.blue.500}" },
+            "bg": { "value": "{ref.color.neutral.100}" },
+            "on-primary": { "value": "{ref.color.white}" }
         }
     }
 }

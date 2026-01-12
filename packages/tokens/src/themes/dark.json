@@ -1,7 +1,8 @@
 {
     "sys": {
         "color": {
-            "primary": { "value": "{ref.palette.blue.400}" }
+            "primary": { "value": "{ref.color.blue.400}" },
+            "bg": { "value": "{ref.color.neutral.900}" }
         }
     }
 }
