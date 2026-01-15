@@ -1,1 +1,2 @@
-export { BoringButton } from './button';
+// packages/components/src/index.ts
+export * from './button';
