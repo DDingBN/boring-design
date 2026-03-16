@@ -1,4 +1,4 @@
-import { css } from 'lit';
+import { css } from "lit";
 
 export const buttonStyles = css`
   /* :host 代表组件标签本身 <bd-button> */
@@ -13,10 +13,10 @@ export const buttonStyles = css`
     font-size: 1rem;
     line-height: 1.5;
     border: 1px solid transparent;
-    border-radius: 4px; /* 以后可以用 var(--bd-sys-radius-md) */
+    border-radius: var(--comp-button-radius, 6px);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    
+
     /* Flex 布局保证图标和文字对齐 */
     display: inline-flex;
     align-items: center;
@@ -32,25 +32,24 @@ export const buttonStyles = css`
   }
 
   /* --- 变体 (Variants) --- */
-  
+
   /* Primary */
   .button--primary {
-    /* 这里的变量对应你 Token 系统生成的变量，后面是兜底颜色 */
-    background-color: var(--bd-sys-color-primary, #1976d2);
-    color: #ffffff;
+    background-color: var(--comp-button-bg-default, #1976d2);
+    color: var(--comp-button-text-primary, #ffffff);
   }
   .button--primary:hover:not(:disabled) {
-    background-color: var(--bd-sys-color-primary-dark, #1565c0);
+    background-color: var(--comp-button-bg-hover, #1565c0);
   }
 
   /* Default / Outline */
   .button--default {
     background-color: transparent;
-    border-color: #ccc;
-    color: #333;
+    border-color: var(--comp-button-border-default, #ccc);
+    color: var(--comp-button-text-default, #333);
   }
   .button--default:hover:not(:disabled) {
-    border-color: var(--bd-sys-color-primary, #1976d2);
-    color: var(--bd-sys-color-primary, #1976d2);
+    border-color: var(--sys-color-primary, #1976d2);
+    color: var(--sys-color-primary, #1976d2);
   }
 `;

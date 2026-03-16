@@ -2,10 +2,10 @@
 
 这里是组件演示：
 
-<boring-button label="点击我"></boring-button>
+<bd-button>点击我</bd-button>
 
 <div style="margin-top: 20px">
-  <boring-button>
+  <bd-button variant="primary">
     带 Slot 的按钮
-  </boring-button>
+  </bd-button>
 </div>

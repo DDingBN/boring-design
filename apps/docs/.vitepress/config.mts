@@ -7,7 +7,7 @@ export default defineConfig({
     vue: {
         template: {
             compilerOptions: {
-                isCustomElement: (tag) => tag.includes('boring-')
+                isCustomElement: (tag) => tag.startsWith('bd-') || tag.includes('boring-')
             }
         }
     },
@@ -30,6 +30,7 @@ export default defineConfig({
                 text: 'Components',
                 items: [
                     { text: 'Button', link: '/api/index' },
+                    { text: 'Alert', link: '/api/alert' },
                 ]
             }
         ],

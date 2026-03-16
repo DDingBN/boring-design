@@ -6,8 +6,13 @@
                 "hover": { "value": "{sys.color.primary}" }
             },
             "text": {
-                "value": "{sys.color.on-primary}"
-            }
+                "primary": { "value": "{sys.color.on-primary}" },
+                "default": { "value": "{ref.color.neutral.700}" }
+            },
+            "border": {
+                "default": { "value": "{ref.color.neutral.300}" }
+            },
+            "radius": { "value": "6px" }
         }
     }
 }
