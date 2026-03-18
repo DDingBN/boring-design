@@ -11,7 +11,7 @@ hero:
       link: /api/started
     - theme: alt
       text: Components
-      link: /api/index
+      link: /api/components/
 
 features:
   - title: Framework Agnostic

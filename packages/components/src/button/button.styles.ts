@@ -13,7 +13,7 @@ export const buttonStyles = css`
     font-size: 1rem;
     line-height: 1.5;
     border: 1px solid transparent;
-    border-radius: var(--comp-button-radius, 6px);
+    border-radius: var(--bd-button-radius, var(--bd-radius-md));
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 
@@ -21,7 +21,7 @@ export const buttonStyles = css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 1rem;
+    padding: var(--bd-space-2) var(--bd-space-4);
   }
 
   /* 禁用状态 */
@@ -35,21 +35,21 @@ export const buttonStyles = css`
 
   /* Primary */
   .button--primary {
-    background-color: var(--comp-button-bg-default, #1976d2);
-    color: var(--comp-button-text-primary, #ffffff);
+    background-color: var(--bd-button-primary-bg, var(--bd-color-primary));
+    color: var(--bd-button-primary-text, var(--bd-color-on-primary));
   }
   .button--primary:hover:not(:disabled) {
-    background-color: var(--comp-button-bg-hover, #1565c0);
+    background-color: var(--bd-button-primary-bg-hover, var(--bd-color-primary-hover));
   }
 
   /* Default / Outline */
   .button--default {
     background-color: transparent;
-    border-color: var(--comp-button-border-default, #ccc);
-    color: var(--comp-button-text-default, #333);
+    border-color: var(--bd-button-default-border, var(--bd-border-base));
+    color: var(--bd-button-default-text, var(--bd-text-primary));
   }
   .button--default:hover:not(:disabled) {
-    border-color: var(--sys-color-primary, #1976d2);
-    color: var(--sys-color-primary, #1976d2);
+    border-color: var(--bd-color-primary);
+    color: var(--bd-color-primary);
   }
 `;

@@ -3,26 +3,16 @@
     "version": "0.0.1",
     "type": "module",
     "description": "Design tokens for Boring UI",
-    "files": [
-        "dist"
-    ],
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "style": "./tokens.css",
     "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.js"
-        },
-        "./css/light": "./dist/css/light.css",
-        "./css/dark": "./dist/css/dark.css",
-        "./css/*": "./dist/css/*.css"
+        ".": "./tokens.css",
+        "./tokens.css": "./tokens.css"
     },
     "sideEffects": [
-        "**/*.css"
+        "*.css"
     ],
     "scripts": {
-        "build": "node build.js",
-        "prepublishOnly": "npm run build"
+        "build": "echo 'No build step for tokens - CSS only'"
     },
     "keywords": [
         "design-systems",
@@ -31,8 +21,5 @@
     ],
     "author": "",
     "license": "ISC",
-    "packageManager": "pnpm@9.0.0",
-    "devDependencies": {
-        "style-dictionary": "^5.1.1"
-    }
+    "packageManager": "pnpm@10.25.0"
 }

@@ -5,8 +5,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:docs": "pnpm -F @boring/tokens build && pnpm -F docs dev",
-    "build:all": "pnpm -r build"
+    "dev:docs": "pnpm -F docs dev",
+    "build:all": "pnpm -r build",
+    "lint": "pnpm -r --if-present lint",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test"
   },
   "keywords": [],
   "author": "",

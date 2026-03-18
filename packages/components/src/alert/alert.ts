@@ -2,7 +2,13 @@ import { LitElement, html, nothing } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { alertStyles } from "./alert.styles";
-import type { AlertCloseDetail, AlertTone, AlertVariant } from "./alert.types";
+
+export type AlertVariant = "info" | "success" | "warning" | "error";
+export type AlertTone = "solid" | "soft" | "outline";
+
+export interface AlertCloseDetail {
+  reason: "close-button" | "api";
+}
 
 @customElement("bd-alert")
 export class Alert extends LitElement {

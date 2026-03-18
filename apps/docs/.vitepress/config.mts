@@ -15,7 +15,7 @@ export default defineConfig({
     themeConfig: {
         nav: [
             { text: 'Guide', link: '/api/started' },
-            { text: 'Components', link: '/api/index' },
+            { text: 'Components', link: '/api/components/' },
         ],
 
         sidebar: [
@@ -29,8 +29,9 @@ export default defineConfig({
             {
                 text: 'Components',
                 items: [
-                    { text: 'Button', link: '/api/index' },
-                    { text: 'Alert', link: '/api/alert' },
+                    { text: 'Overview', link: '/api/components/' },
+                    { text: 'Button', link: '/api/components/button/' },
+                    { text: 'Alert', link: '/api/components/alert/' },
                 ]
             }
         ],

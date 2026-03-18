@@ -2,7 +2,10 @@ import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js"; // 这是一个非常好用的指令
 import { buttonStyles } from "./button.styles";
-import type { ButtonSize, ButtonType, ButtonVariant } from "./button.types";
+
+export type ButtonVariant = "primary" | "default" | "text";
+export type ButtonSize = "small" | "medium" | "large";
+export type ButtonType = "button" | "submit" | "reset";
 
 /**
  * Button 组件

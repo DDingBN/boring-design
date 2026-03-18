@@ -6,11 +6,11 @@ export const alertStyles = css`
   }
   .alert {
     display: flex;
-    gap: 8px;
+    gap: var(--bd-space-2);
     align-items: flex-start;
     border: 1px solid transparent;
-    border-radius: var(--comp-alert-radius, 6px);
-    padding: 10px 12px;
+    border-radius: var(--bd-alert-radius, var(--bd-radius-md));
+    padding: var(--bd-space-3);
     font-size: 14px;
     line-height: 1.5;
   }
@@ -32,23 +32,23 @@ export const alertStyles = css`
     color: inherit;
   }
   .alert--info.alert--soft {
-    background: var(--comp-alert-bg-info-soft, #eaf3ff);
-    color: var(--comp-alert-text-info-soft, #1d4ed8);
-    border-color: var(--comp-alert-border-info-soft, #bfdbfe);
+    background: var(--bd-alert-info-bg, var(--bd-color-info-bg));
+    color: var(--bd-alert-info-text, var(--bd-color-info-text));
+    border-color: var(--bd-alert-info-border, var(--bd-color-info-border));
   }
   .alert--success.alert--soft {
-    background: var(--comp-alert-bg-success-soft, #ecfdf3);
-    color: var(--comp-alert-text-success-soft, #047857);
-    border-color: var(--comp-alert-border-success-soft, #a7f3d0);
+    background: var(--bd-alert-success-bg, var(--bd-color-success-bg));
+    color: var(--bd-alert-success-text, var(--bd-color-success-text));
+    border-color: var(--bd-alert-success-border, var(--bd-color-success-border));
   }
   .alert--warning.alert--soft {
-    background: var(--comp-alert-bg-warning-soft, #fffbeb);
-    color: var(--comp-alert-text-warning-soft, #b45309);
-    border-color: var(--comp-alert-border-warning-soft, #fde68a);
+    background: var(--bd-alert-warning-bg, var(--bd-color-warning-bg));
+    color: var(--bd-alert-warning-text, var(--bd-color-warning-text));
+    border-color: var(--bd-alert-warning-border, var(--bd-color-warning-border));
   }
   .alert--error.alert--soft {
-    background: var(--comp-alert-bg-error-soft, #fef2f2);
-    color: var(--comp-alert-text-error-soft, #b91c1c);
-    border-color: var(--comp-alert-border-error-soft, #fecaca);
+    background: var(--bd-alert-error-bg, var(--bd-color-error-bg));
+    color: var(--bd-alert-error-text, var(--bd-color-error-text));
+    border-color: var(--bd-alert-error-border, var(--bd-color-error-border));
   }
 `;

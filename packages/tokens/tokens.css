@@ -1,0 +1,249 @@
+/**
+ * Boring Design Tokens
+ * 极简 3 层架构 - 原生 CSS 变量
+ */
+
+:root {
+  /* ==========================================================================
+     1. 基础层 (Global Tokens)
+     客观物理量，没有任何业务语义
+     ========================================================================== */
+  
+  /* Colors - Blue (Primary) */
+  --bd-blue-50: #eff6ff;
+  --bd-blue-100: #dbeafe;
+  --bd-blue-200: #bfdbfe;
+  --bd-blue-300: #93c5fd;
+  --bd-blue-400: #60a5fa;
+  --bd-blue-500: #3b82f6;
+  --bd-blue-600: #2563eb;
+  --bd-blue-700: #1d4ed8;
+  --bd-blue-800: #1e40af;
+  --bd-blue-900: #1e3a8a;
+
+  /* Colors - Neutral (Grays) */
+  --bd-neutral-50: #fafafa;
+  --bd-neutral-100: #f5f5f5;
+  --bd-neutral-200: #e5e5e5;
+  --bd-neutral-300: #d4d4d4;
+  --bd-neutral-400: #a3a3a3;
+  --bd-neutral-500: #737373;
+  --bd-neutral-600: #525252;
+  --bd-neutral-700: #404040;
+  --bd-neutral-800: #262626;
+  --bd-neutral-900: #171717;
+
+  /* Colors - Red (Error) */
+  --bd-red-50: #fef2f2;
+  --bd-red-100: #fee2e2;
+  --bd-red-200: #fecaca;
+  --bd-red-300: #fca5a5;
+  --bd-red-400: #f87171;
+  --bd-red-500: #ef4444;
+  --bd-red-600: #dc2626;
+  --bd-red-700: #b91c1c;
+  --bd-red-800: #991b1b;
+  --bd-red-900: #7f1d1d;
+
+  /* Colors - Green (Success) */
+  --bd-green-50: #f0fdf4;
+  --bd-green-100: #dcfce7;
+  --bd-green-200: #bbf7d0;
+  --bd-green-300: #86efac;
+  --bd-green-400: #4ade80;
+  --bd-green-500: #22c55e;
+  --bd-green-600: #16a34a;
+  --bd-green-700: #15803d;
+  --bd-green-800: #166534;
+  --bd-green-900: #14532d;
+
+  /* Colors - Yellow (Warning) */
+  --bd-yellow-50: #fefce8;
+  --bd-yellow-100: #fef9c3;
+  --bd-yellow-200: #fde047;
+  --bd-yellow-300: #fcd34d;
+  --bd-yellow-400: #fbbf24;
+  --bd-yellow-500: #eab308;
+  --bd-yellow-600: #ca8a04;
+  --bd-yellow-700: #a16207;
+  --bd-yellow-800: #854d0e;
+  --bd-yellow-900: #713f12;
+
+  /* Basic Colors */
+  --bd-white: #ffffff;
+  --bd-black: #000000;
+  --bd-transparent: transparent;
+
+  /* Spacing */
+  --bd-space-0: 0px;
+  --bd-space-1: 4px;
+  --bd-space-2: 8px;
+  --bd-space-3: 12px;
+  --bd-space-4: 16px;
+  --bd-space-5: 24px;
+  --bd-space-6: 32px;
+  --bd-space-8: 48px;
+
+  /* Radius */
+  --bd-radius-none: 0px;
+  --bd-radius-sm: 2px;
+  --bd-radius-md: 6px;
+  --bd-radius-lg: 12px;
+  --bd-radius-full: 9999px;
+
+  /* Shadows */
+  --bd-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --bd-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --bd-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Typography */
+  --bd-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bd-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --bd-text-xs: 0.75rem;
+  --bd-text-sm: 0.875rem;
+  --bd-text-base: 1rem;
+  --bd-text-lg: 1.125rem;
+  --bd-text-xl: 1.25rem;
+  
+  --bd-leading-none: 1;
+  --bd-leading-tight: 1.25;
+  --bd-leading-normal: 1.5;
+  --bd-leading-relaxed: 1.625;
+
+  --bd-font-normal: 400;
+  --bd-font-medium: 500;
+  --bd-font-semibold: 600;
+  --bd-font-bold: 700;
+
+  /* Z-Index */
+  --bd-z-hide: -1;
+  --bd-z-base: 0;
+  --bd-z-dock: 10;
+  --bd-z-dropdown: 1000;
+  --bd-z-sticky: 1100;
+  --bd-z-banner: 1200;
+  --bd-z-overlay: 1300;
+  --bd-z-modal: 1400;
+  --bd-z-popover: 1500;
+  --bd-z-toast: 1600;
+  --bd-z-tooltip: 1700;
+
+  /* ==========================================================================
+     2. 语义层 (Semantic Tokens) - 浅色模式 (默认)
+     赋予基础层业务意图，核心层
+     ========================================================================== */
+
+  /* Backgrounds */
+  --bd-bg-base: var(--bd-white);
+  --bd-bg-subtle: var(--bd-neutral-50);
+  --bd-bg-muted: var(--bd-neutral-100);
+  --bd-bg-inverse: var(--bd-neutral-900);
+
+  /* Texts */
+  --bd-text-primary: var(--bd-neutral-900);
+  --bd-text-secondary: var(--bd-neutral-600);
+  --bd-text-muted: var(--bd-neutral-400);
+  --bd-text-inverse: var(--bd-white);
+
+  /* Borders */
+  --bd-border-base: var(--bd-neutral-200);
+  --bd-border-strong: var(--bd-neutral-300);
+
+  /* Shadows - Semantic */
+  --bd-shadow-base: var(--bd-shadow-sm);
+  --bd-shadow-overlay: var(--bd-shadow-lg);
+
+  /* Typography - Semantic */
+  --bd-font-family-base: var(--bd-font-sans);
+  --bd-font-family-code: var(--bd-font-mono);
+
+  /* Brand / Intent Colors */
+  /* Primary */
+  --bd-color-primary: var(--bd-blue-500);
+  --bd-color-primary-hover: var(--bd-blue-600);
+  --bd-color-primary-active: var(--bd-blue-700);
+  --bd-color-on-primary: var(--bd-white);
+
+  /* Success */
+  --bd-color-success: var(--bd-green-500);
+  --bd-color-success-bg: var(--bd-green-50);
+  --bd-color-success-border: var(--bd-green-200);
+  --bd-color-success-text: var(--bd-green-700);
+
+  /* Warning */
+  --bd-color-warning: var(--bd-yellow-500);
+  --bd-color-warning-bg: var(--bd-yellow-50);
+  --bd-color-warning-border: var(--bd-yellow-200);
+  --bd-color-warning-text: var(--bd-yellow-700);
+
+  /* Error */
+  --bd-color-error: var(--bd-red-500);
+  --bd-color-error-bg: var(--bd-red-50);
+  --bd-color-error-border: var(--bd-red-200);
+  --bd-color-error-text: var(--bd-red-700);
+
+  /* Info */
+  --bd-color-info: var(--bd-blue-500);
+  --bd-color-info-bg: var(--bd-blue-50);
+  --bd-color-info-border: var(--bd-blue-200);
+  --bd-color-info-text: var(--bd-blue-700);
+}
+
+/* ==========================================================================
+   2. 语义层 (Semantic Tokens) - 深色模式 (暗黑模式)
+   将深色覆写值写在同一个文件中，保持高内聚
+   ========================================================================== */
+[data-theme="dark"],
+.dark {
+  /* Backgrounds */
+  --bd-bg-base: var(--bd-neutral-900);
+  --bd-bg-subtle: var(--bd-neutral-800);
+  --bd-bg-muted: var(--bd-neutral-700);
+  --bd-bg-inverse: var(--bd-white);
+
+  /* Texts */
+  --bd-text-primary: var(--bd-neutral-50);
+  --bd-text-secondary: var(--bd-neutral-300);
+  --bd-text-muted: var(--bd-neutral-500);
+  --bd-text-inverse: var(--bd-neutral-900);
+
+  /* Borders */
+  --bd-border-base: var(--bd-neutral-700);
+  --bd-border-strong: var(--bd-neutral-600);
+
+  /* Shadows - Semantic */
+  --bd-shadow-base: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --bd-shadow-overlay: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+
+  /* Brand / Intent Colors */
+  /* Primary */
+  --bd-color-primary: var(--bd-blue-400);
+  --bd-color-primary-hover: var(--bd-blue-500);
+  --bd-color-primary-active: var(--bd-blue-600);
+  --bd-color-on-primary: var(--bd-neutral-900);
+
+  /* Success */
+  --bd-color-success: var(--bd-green-400);
+  --bd-color-success-bg: var(--bd-green-900);
+  --bd-color-success-border: var(--bd-green-800);
+  --bd-color-success-text: var(--bd-green-200);
+
+  /* Warning */
+  --bd-color-warning: var(--bd-yellow-400);
+  --bd-color-warning-bg: var(--bd-yellow-900);
+  --bd-color-warning-border: var(--bd-yellow-800);
+  --bd-color-warning-text: var(--bd-yellow-200);
+
+  /* Error */
+  --bd-color-error: var(--bd-red-400);
+  --bd-color-error-bg: var(--bd-red-900);
+  --bd-color-error-border: var(--bd-red-800);
+  --bd-color-error-text: var(--bd-red-200);
+
+  /* Info */
+  --bd-color-info: var(--bd-blue-400);
+  --bd-color-info-bg: var(--bd-blue-900);
+  --bd-color-info-border: var(--bd-blue-800);
+  --bd-color-info-text: var(--bd-blue-200);
+}
