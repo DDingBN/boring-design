@@ -10,46 +10,147 @@ export const buttonStyles = css`
   /* 基础按钮样式 */
   .button {
     font-family: inherit;
-    font-size: 1rem;
-    line-height: 1.5;
     border: 1px solid transparent;
-    border-radius: var(--bd-button-radius, var(--bd-radius-md));
+    border-radius: var(--bd-button-radius, var(--bd-radius-md, 4px));
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-
+    
     /* Flex 布局保证图标和文字对齐 */
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: var(--bd-space-2) var(--bd-space-4);
+    /* 移除全局 gap，改为条件应用 */
+    box-sizing: border-box;
+    white-space: nowrap;
+    user-select: none;
   }
 
-  /* 禁用状态 */
+  /* 禁用与加载状态 */
   .button:disabled,
-  .button[aria-disabled="true"] {
+  .button[aria-disabled="true"],
+  .button--loading {
     cursor: not-allowed;
     opacity: 0.6;
+  }
+
+  /* --- 尺寸 (Sizes) --- */
+  /* 更紧凑的尺寸体系，字体稍微调小，减少臃肿感 */
+  .button--small {
+    font-size: var(--bd-text-xs, 0.75rem); /* 12px */
+    height: var(--bd-space-5, 24px);
+    padding: 0 var(--bd-button-px-sm, var(--bd-space-btn-px-sm, 7px));
+    border-radius: var(--bd-button-radius-sm, var(--bd-radius-sm, 4px));
+  }
+
+  .button--medium {
+    font-size: var(--bd-text-sm, 0.875rem); /* 14px */
+    height: var(--bd-space-6, 32px);
+    padding: 0 var(--bd-button-px-md, var(--bd-space-btn-px-md, 15px));
+    border-radius: var(--bd-button-radius-md, var(--bd-radius-md, 6px));
+  }
+
+  .button--large {
+    font-size: var(--bd-text-base, 1rem); /* 16px */
+    height: var(--bd-space-7, 40px);
+    padding: 0 var(--bd-button-px-lg, var(--bd-space-btn-px-lg, 23px));
+    border-radius: var(--bd-button-radius-lg, var(--bd-radius-lg, 8px));
+  }
+
+  /* 只有当真的存在多个子元素时，才应用 gap，避免只有文本时首尾产生多余间隙 */
+  .button--has-prefix.button--has-label,
+  .button--has-suffix.button--has-label,
+  .button--has-prefix.button--has-suffix,
+  .button--loading.button--has-label {
+    gap: var(--bd-space-2, 8px);
+  }
+
+  /* 仅包含图标时，调整 padding 使其呈正方形 */
+  .button:not(.button--has-label) {
+    padding: 0;
+    width: var(--bd-space-6, 32px); /* 默认 medium 宽度等于高度 */
+  }
+  
+  .button--small:not(.button--has-label) {
+    width: var(--bd-space-5, 24px);
+  }
+  
+  .button--large:not(.button--has-label) {
+    width: var(--bd-space-7, 40px);
   }
 
   /* --- 变体 (Variants) --- */
 
   /* Primary */
   .button--primary {
-    background-color: var(--bd-button-primary-bg, var(--bd-color-primary));
-    color: var(--bd-button-primary-text, var(--bd-color-on-primary));
+    background-color: var(--bd-button-primary-bg, var(--bd-color-primary, #1677ff));
+    color: var(--bd-button-primary-text, var(--bd-color-on-primary, #fff));
   }
-  .button--primary:hover:not(:disabled) {
-    background-color: var(--bd-button-primary-bg-hover, var(--bd-color-primary-hover));
+  .button--primary:hover:not(:disabled):not(.button--loading) {
+    background-color: var(--bd-button-primary-bg-hover, var(--bd-color-primary-hover, #4096ff));
   }
 
   /* Default / Outline */
   .button--default {
-    background-color: transparent;
-    border-color: var(--bd-button-default-border, var(--bd-border-base));
-    color: var(--bd-button-default-text, var(--bd-text-primary));
+    background-color: var(--bd-button-default-bg, #ffffff);
+    border-color: var(--bd-button-default-border, var(--bd-border-base, #d9d9d9));
+    color: var(--bd-button-default-text, var(--bd-text-primary, #000000));
   }
-  .button--default:hover:not(:disabled) {
-    border-color: var(--bd-color-primary);
-    color: var(--bd-color-primary);
+  .button--default:hover:not(:disabled):not(.button--loading) {
+    border-color: var(--bd-color-primary, #1677ff);
+    color: var(--bd-color-primary, #1677ff);
+  }
+
+  /* Text */
+  .button--text {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--bd-button-text-color, var(--bd-text-primary, #000000));
+  }
+  .button--text:hover:not(:disabled):not(.button--loading) {
+    background-color: var(--bd-button-text-bg-hover, rgba(0, 0, 0, 0.04));
+  }
+
+  /* Danger */
+  .button--danger {
+    background-color: var(--bd-button-danger-bg, var(--bd-color-danger, #ff4d4f));
+    color: var(--bd-button-danger-text, var(--bd-color-on-danger, #ffffff));
+  }
+  .button--danger:hover:not(:disabled):not(.button--loading) {
+    background-color: var(--bd-button-danger-bg-hover, var(--bd-color-danger-hover, #ff7875));
+  }
+
+  /* --- 内部包裹层 --- */
+  .prefix, 
+  .suffix, 
+  .label {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* 限制 svg 等图标的默认尺寸，使其与文字比例更协调 */
+  ::slotted(svg),
+  .spinner svg {
+    width: 1.2em;
+    height: 1.2em;
+    fill: currentColor;
+    flex-shrink: 0; /* 防止在 flex 容器中被意外压缩变形 */
+  }
+
+  /* --- Loading Spinner --- */
+  .spinner {
+    display: inline-flex;
+    align-items: center;
+    animation: spin 1s linear infinite;
+  }
+  
+  .default-spinner {
+    width: 1em;
+    height: 1em;
+  }
+
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
   }
 `;

@@ -69,9 +69,13 @@ git clone https://github.com/your-username/boring-design.git
 # 2. Install dependencies
 pnpm install
 
-# 3. Start development server
-pnpm dev
+# 3. Start development server (文档站点 & 组件热更新)
+pnpm dev:docs
 ```
+
+> **💡 开发体验提示**：
+> 本项目采用 Monorepo 架构并配置了 Node.js 的 **Conditional Exports**。
+> 在运行 `pnpm dev:docs` 时，VitePress 会自动解析到 `packages/components/src` 的源码。这意味着你修改任何组件代码（`.ts`, `.styles.ts`）或全局 Tokens（`tokens.css`）时，**无需重新 build，即可在文档中享受毫秒级的 HMR 热更新！**
 
 ## 📄 License
 

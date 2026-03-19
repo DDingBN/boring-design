@@ -14,9 +14,10 @@
   "license": "ISC",
   "packageManager": "pnpm@10.25.0",
   "devDependencies": {
+    "@types/node": "^24.10.1",
+    "markdown-it-container": "^4.0.0",
     "vitepress": "^1.6.4",
-    "vue": "^3.5.25",
-    "@types/node": "^24.10.1"
+    "vue": "^3.5.25"
   },
   "dependencies": {
     "@boring/components": "workspace:*",

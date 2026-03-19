@@ -82,7 +82,13 @@
   --bd-space-4: 16px;
   --bd-space-5: 24px;
   --bd-space-6: 32px;
+  --bd-space-7: 40px;
   --bd-space-8: 48px;
+
+  /* Button Specific Padding (基于基础层微调的组件级基础变量) */
+  --bd-space-btn-px-sm: 7px;
+  --bd-space-btn-px-md: 15px;
+  --bd-space-btn-px-lg: 23px;
 
   /* Radius */
   --bd-radius-none: 0px;

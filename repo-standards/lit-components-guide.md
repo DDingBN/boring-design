@@ -107,6 +107,39 @@ private _handleChange(e: Event) {
 <!-- 外部可用 bd-button::part(label) 覆盖样式 -->
 ```
 
+### 5.3 智能插槽与状态驱动 CSS (HasSlotController)
+在使用 Flex 布局（特别是有 `gap` 时），如果插槽为空，多余的包裹标签会撑开不必要的间隙。
+**规范**：
+1. 必须使用内置的 `HasSlotController` 来监听插槽是否真有内容。
+2. 只有在插槽有内容时，才在 `render()` 中渲染对应的 HTML 节点，并在外层容器上附加状态类名（如 `.button--has-prefix`）。
+3. **不要在组件根节点写死全局 `gap`**。应该通过状态组合按需应用 `gap`，或针对没有文本的纯图标按钮动态调整 `padding`。
+
+```typescript
+// ✅ 正确：使用 HasSlotController 避免空插槽破坏布局
+export class BdButton extends LitElement {
+  private readonly hasSlotController = new HasSlotController(this, "[default]", "prefix");
+
+  render() {
+    const hasPrefix = this.hasSlotController.test("prefix");
+    const hasLabel = this.hasSlotController.test("[default]");
+    
+    // 将状态映射到 CSS 类名
+    const classes = {
+      'button': true,
+      'button--has-prefix': hasPrefix,
+      'button--has-label': hasLabel
+    };
+
+    return html`
+      <button class=${classMap(classes)}>
+        ${hasPrefix ? html`<span class="prefix"><slot name="prefix"></slot></span>` : ""}
+        ${hasLabel ? html`<span class="label"><slot></slot></span>` : ""}
+      </button>
+    `;
+  }
+}
+```
+
 ---
 
 ## 6. 表单与可访问性 (Forms)

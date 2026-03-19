@@ -13,7 +13,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^7.3.0
-        version: 7.3.0(@types/node@24.10.7)
+        version: 7.3.0(@types/node@24.10.7)(yaml@2.8.2)
 
   apps/docs:
     dependencies:
@@ -27,6 +27,9 @@ importers:
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.7
+      markdown-it-container:
+        specifier: ^4.0.0
+        version: 4.0.0
       vitepress:
         specifier: ^1.6.4
         version: 1.6.4(@algolia/client-search@5.46.0)(@types/node@24.10.7)(change-case@5.4.4)(postcss@8.5.6)(search-insights@2.17.3)(typescript@5.9.3)
@@ -48,7 +51,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^7.3.0
-        version: 7.3.0(@types/node@24.10.7)
+        version: 7.3.0(@types/node@24.10.7)(yaml@2.8.2)
 
   packages/tokens: {}
 
@@ -845,6 +848,9 @@ packages:
   mark.js@8.11.1:
     resolution: {integrity: sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==}
 
+  markdown-it-container@4.0.0:
+    resolution: {integrity: sha512-HaNccxUH0l7BNGYbFbjmGpf5aLHAMTinqRZQAEQbMr2cdD3z91Q6kIo1oUn1CQndkT03jat6ckrdRYuwwqLlQw==}
+
   mdast-util-to-hast@13.2.1:
     resolution: {integrity: sha512-cctsq2wp5vTsLIcaymblUriiTcZd0CwWtCbLvrOzYCDZoWyMNV8sZ7krj09FSnsiJi3WVsHLM4k6Dq/yaPyCXA==}
 
@@ -1067,6 +1073,11 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  yaml@2.8.2:
+    resolution: {integrity: sha512-mplynKqc1C2hTVYxd0PU2xQAc22TI1vShAYGksCCfxbn/dFwnHTNi1bvYsBTkhdUNtGIf5xNOg938rrSSYvS9A==}
+    engines: {node: '>= 14.6'}
+    hasBin: true
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -1785,6 +1796,8 @@ snapshots:
 
   mark.js@8.11.1: {}
 
+  markdown-it-container@4.0.0: {}
+
   mdast-util-to-hast@13.2.1:
     dependencies:
       '@types/hast': 3.0.4
@@ -1965,7 +1978,7 @@ snapshots:
       '@types/node': 24.10.7
       fsevents: 2.3.3
 
-  vite@7.3.0(@types/node@24.10.7):
+  vite@7.3.0(@types/node@24.10.7)(yaml@2.8.2):
     dependencies:
       esbuild: 0.27.1
       fdir: 6.5.0(picomatch@4.0.3)
@@ -1976,6 +1989,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.10.7
       fsevents: 2.3.3
+      yaml: 2.8.2
 
   vitepress@1.6.4(@algolia/client-search@5.46.0)(@types/node@24.10.7)(change-case@5.4.4)(postcss@8.5.6)(search-insights@2.17.3)(typescript@5.9.3):
     dependencies:
@@ -2035,5 +2049,8 @@ snapshots:
       '@vue/shared': 3.5.25
     optionalDependencies:
       typescript: 5.9.3
+
+  yaml@2.8.2:
+    optional: true
 
   zwitch@2.0.4: {}
