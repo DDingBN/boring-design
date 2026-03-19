@@ -15,6 +15,10 @@ export const buttonStyles = css`
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     
+    /* 预设 outline 颜色以避免 focus 时产生黑色渐变闪烁 */
+    outline: 0px solid var(--bd-focus-ring-color, rgba(59, 130, 246, 0.4));
+    outline-offset: var(--bd-focus-ring-offset, 0px);
+
     /* Flex 布局保证图标和文字对齐 */
     display: inline-flex;
     align-items: center;
@@ -30,7 +34,19 @@ export const buttonStyles = css`
   .button[aria-disabled="true"],
   .button--loading {
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: var(--bd-opacity-disabled, 0.6);
+  }
+
+  /* 焦点状态 (Focus) */
+  .button:focus-visible {
+    outline-width: var(--bd-focus-ring-width, 3px);
+    transition: outline-width 0.1s ease-out, background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s, opacity 0.2s;
+  }
+
+  /* 点击状态 (Active) - 统一增加缩放效果和透明度反馈 */
+  .button:active:not(:disabled):not(.button--loading) {
+    transform: scale(0.98);
+    opacity: var(--bd-opacity-active, 0.8);
   }
 
   /* --- 尺寸 (Sizes) --- */
@@ -82,41 +98,54 @@ export const buttonStyles = css`
 
   /* Primary */
   .button--primary {
-    background-color: var(--bd-button-primary-bg, var(--bd-color-primary, #1677ff));
-    color: var(--bd-button-primary-text, var(--bd-color-on-primary, #fff));
+    background-color: var(--bd-button-primary-bg, var(--bd-color-primary, #3b82f6));
+    color: var(--bd-button-primary-text, var(--bd-color-on-primary, #ffffff));
   }
   .button--primary:hover:not(:disabled):not(.button--loading) {
-    background-color: var(--bd-button-primary-bg-hover, var(--bd-color-primary-hover, #4096ff));
+    background-color: var(--bd-button-primary-bg-hover, var(--bd-color-primary-hover, #2563eb));
+  }
+  .button--primary:active:not(:disabled):not(.button--loading) {
+    background-color: var(--bd-button-primary-bg-active, var(--bd-color-primary-active, #1d4ed8));
   }
 
   /* Default / Outline */
   .button--default {
-    background-color: var(--bd-button-default-bg, #ffffff);
-    border-color: var(--bd-button-default-border, var(--bd-border-base, #d9d9d9));
-    color: var(--bd-button-default-text, var(--bd-text-primary, #000000));
+    background-color: var(--bd-button-default-bg, var(--bd-bg-base, #ffffff));
+    border-color: var(--bd-button-default-border, var(--bd-border-base, #d4d4d4));
+    color: var(--bd-button-default-text, var(--bd-text-primary, #171717));
   }
   .button--default:hover:not(:disabled):not(.button--loading) {
-    border-color: var(--bd-color-primary, #1677ff);
-    color: var(--bd-color-primary, #1677ff);
+    border-color: var(--bd-color-primary-hover, #2563eb);
+    color: var(--bd-color-primary-hover, #2563eb);
+  }
+  .button--default:active:not(:disabled):not(.button--loading) {
+    border-color: var(--bd-color-primary-active, #1d4ed8);
+    color: var(--bd-color-primary-active, #1d4ed8);
   }
 
   /* Text */
   .button--text {
     background-color: transparent;
     border-color: transparent;
-    color: var(--bd-button-text-color, var(--bd-text-primary, #000000));
+    color: var(--bd-button-text-color, var(--bd-text-primary, #171717));
   }
   .button--text:hover:not(:disabled):not(.button--loading) {
-    background-color: var(--bd-button-text-bg-hover, rgba(0, 0, 0, 0.04));
+    background-color: var(--bd-button-text-bg-hover, var(--bd-bg-muted, #f5f5f5));
+  }
+  .button--text:active:not(:disabled):not(.button--loading) {
+    background-color: var(--bd-button-text-bg-active, var(--bd-border-base, #e5e5e5));
   }
 
   /* Danger */
   .button--danger {
-    background-color: var(--bd-button-danger-bg, var(--bd-color-danger, #ff4d4f));
-    color: var(--bd-button-danger-text, var(--bd-color-on-danger, #ffffff));
+    background-color: var(--bd-button-danger-bg, var(--bd-color-error, #ef4444));
+    color: var(--bd-button-danger-text, var(--bd-color-on-error, #ffffff));
   }
   .button--danger:hover:not(:disabled):not(.button--loading) {
-    background-color: var(--bd-button-danger-bg-hover, var(--bd-color-danger-hover, #ff7875));
+    background-color: var(--bd-button-danger-bg-hover, var(--bd-color-error-hover, #dc2626));
+  }
+  .button--danger:active:not(:disabled):not(.button--loading) {
+    background-color: var(--bd-button-danger-bg-active, var(--bd-color-error-active, #b91c1c));
   }
 
   /* --- 内部包裹层 --- */

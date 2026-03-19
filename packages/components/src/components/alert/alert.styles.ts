@@ -30,6 +30,24 @@ export const alertStyles = css`
     line-height: 1;
     padding: 2px;
     color: inherit;
+    border-radius: var(--bd-radius-sm);
+    transition: all 0.2s ease-in-out;
+    
+    /* 预设 outline 颜色以避免 focus 时产生黑色渐变闪烁 */
+    outline: 0px solid var(--bd-focus-ring-color, rgba(59, 130, 246, 0.4));
+    outline-offset: var(--bd-focus-ring-offset, 0px);
+  }
+  .close:hover {
+    opacity: var(--bd-opacity-hover, 0.8);
+    background: rgba(0, 0, 0, 0.05);
+  }
+  .close:active {
+    opacity: var(--bd-opacity-active, 0.6);
+    transform: scale(0.95);
+  }
+  .close:focus-visible {
+    outline-width: var(--bd-focus-ring-width, 3px);
+    transition: outline-width 0.1s ease-out, opacity 0.2s, background-color 0.2s, transform 0.2s;
   }
   .alert--info.alert--soft {
     background: var(--bd-alert-info-bg, var(--bd-color-info-bg));

@@ -158,7 +158,37 @@ export const buttonStyles = css`
 *   `--bd-shadow-base`: 默认组件阴影 (Semantic)
 *   `--bd-shadow-overlay`: 浮层/模态框阴影 (Semantic)
 
-### 4.4 Z-Index 层级
+### 4.4 交互状态 (Interaction States)
+为了保证组件交互体验的一致性，设计系统内置了通用的交互状态 Token：
+
+| 变量名 | 默认值 | 用途 |
+| :--- | :--- | :--- |
+| `--bd-opacity-hover` | 0.8 | 通用悬停透明度 |
+| `--bd-opacity-active` | 0.6 | 通用点击透明度 |
+| `--bd-opacity-disabled` | 0.6 | 通用禁用透明度 |
+| `--bd-focus-ring-color` | `color-mix(in srgb, var(--bd-color-primary) 40%, transparent)` | 焦点环颜色 (半透明) |
+| `--bd-focus-ring-width` | 3px | 焦点环宽度 |
+| `--bd-focus-ring-offset` | 0px | 焦点环偏移量 |
+
+**组件实现建议：**
+- **Hover/Active**：有明确背景色的组件（如 Primary 按钮）应提供专用的 Hover/Active 颜色（如 `--bd-color-primary-hover`）。无背景色或轻量级交互元素（如弹窗关闭按钮）可直接使用 `opacity` 或 `rgba` 叠加背景来实现状态变化。
+- **Focus**：所有可聚焦元素应使用 `:focus-visible` 而非 `:focus`，并应用统一的焦点环。为了避免动画产生突兀的颜色闪烁，应在默认状态下预设 `outline` 颜色（宽度为 `0`），在 `:focus-visible` 状态下仅改变 `outline-width`：
+  ```css
+  /* 默认状态 */
+  .component {
+    outline: 0px solid var(--bd-focus-ring-color);
+    outline-offset: var(--bd-focus-ring-offset);
+    transition: outline-width 0.1s ease-out; /* 焦点动画建议更快 */
+  }
+  
+  /* 焦点状态 */
+  .component:focus-visible {
+    outline-width: var(--bd-focus-ring-width);
+  }
+  ```
+- **Active 动效**：可交互组件（如按钮）在 `:active` 状态下建议增加轻微的缩放反馈（`transform: scale(0.98)`）以增强按压感。
+
+### 4.5 Z-Index 层级
 请严格遵循以下层级，禁止随意使用 `z-index: 9999`。
 
 | 变量名 | 值 | 用途 |
