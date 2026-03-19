@@ -37,11 +37,11 @@ import 'boring-ui';
 
 ### 2. 按需引入 (推荐)
 
-仅引入你需要的组件，以减小打包体积。
+仅引入你需要的组件，以减小打包体积。由于配置了现代的 Exports 规范，你可以直接通过通配符路径引入：
 
 ```javascript
-import 'boring-ui/components/button.js';
-import 'boring-ui/components/input.js';
+import 'boring-ui/button';
+import 'boring-ui/alert';
 ```
 
 ### Framework Integration (框架集成)
