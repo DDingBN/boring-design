@@ -2,7 +2,7 @@ import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { buttonStyles } from "./button.styles";
-import { HasSlotController } from "../internal/controllers/hasSlotController";
+import { HasSlotController } from "../../internal/controllers/hasSlotController";
 
 export type ButtonVariant = "primary" | "default" | "text" | "danger";
 export type ButtonSize = "small" | "medium" | "large";

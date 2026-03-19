@@ -19,17 +19,11 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./button": {
-      "types": "./dist/button/index.d.ts",
-      "development": "./src/button/index.ts",
-      "import": "./dist/button/index.js",
-      "default": "./dist/button/index.js"
-    },
-    "./alert": {
-      "types": "./dist/alert/index.d.ts",
-      "development": "./src/alert/index.ts",
-      "import": "./dist/alert/index.js",
-      "default": "./dist/alert/index.js"
+    "./*": {
+      "types": "./dist/components/*/index.d.ts",
+      "development": "./src/components/*/index.ts",
+      "import": "./dist/components/*/index.js",
+      "default": "./dist/components/*/index.js"
     }
   },
   "scripts": {

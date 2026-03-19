@@ -23,7 +23,7 @@ export default defineConfig({
                 text: 'Guide',
                 items: [
                     { text: 'Quick Start', link: '/api/started' },
-                    { text: 'Navigation', link: '/api/分类导航' },
+                    { text: 'Navigation', link: '/api/navigation' },
                 ]
             },
             {
