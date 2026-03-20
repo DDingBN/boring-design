@@ -31,6 +31,7 @@ export default defineConfig({
                 items: [
                     { text: 'Overview', link: '/api/components/' },
                     { text: 'Button', link: '/api/components/button/' },
+                    { text: 'Input', link: '/api/components/input/' },
                     { text: 'Alert', link: '/api/components/alert/' },
                 ]
             }
