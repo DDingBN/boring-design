@@ -5,3 +5,4 @@
 - [Button](/api/components/button/)
 - [Input](/api/components/input/)
 - [Alert](/api/components/alert/)
+- [Checkbox](/api/components/checkbox/)

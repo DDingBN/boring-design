@@ -2,3 +2,4 @@
 export * from './components/button/index';
 export * from './components/input/index';
 export * from './components/alert/index';
+export * from './components/checkbox/index';

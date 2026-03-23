@@ -20,7 +20,7 @@ Boring Design 提供了一套完整且实用的组件矩阵，按照功能和语
 
 *   Input 输入框
 *   Textarea 多行文本
-*   Checkbox 复选框
+*   [Checkbox 复选框](./components/checkbox/index.md)
 *   Radio 单选框
 *   Select 选择器
 *   Switch 开关
